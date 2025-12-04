@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaScope - Advanced Movie Analytics Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="film-reel">
+                <i class="fas fa-film fa-spin"></i>
+            </div>
+            <p>Loading CinemaScope...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-film"></i> CinemaScope</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#financial-analysis">Financial Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#genre-analysis">Genre Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#trend-analysis">Trend Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#performance-metrics">Performance Metrics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#studio-comparison">Studio Comparison</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#predictive-analytics">Predictive Analytics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#movie-search">Movie Search</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="display-4 fw-bold">CinemaScope</h1>
+                    <h2 class="mb-4">Highest Hollywood Grossing Movies Analysis</h2>
+                    <p class="lead mb-4">Discover insights from analyzing Hollywood's biggest blockbusters. Explore financial performance, genre trends, and predictive analytics for the most successful films of all time.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#financial-analysis" class="btn btn-primary btn-lg">Explore Analytics</a>
+                        <a href="#movie-search" class="btn btn-outline-light btn-lg">Search Movies</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <h3><i class="fas fa-film"></i> <span class="counter">100</span>+</h3>
+                            <p>Highest Grossing Movies</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3><i class="fas fa-chart-line"></i> <span class="counter">25</span>+</h3>
+                            <p>Years of Data</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3><i class="fas fa-dollar-sign"></i> <span class="counter">200</span>B+</h3>
+                            <p>Box Office Revenue</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3><i class="fas fa-users"></i> <span class="counter">20</span>+</h3>
+                            <p>Studios Tracked</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Module 1: Financial Analysis -->
+    <section id="financial-analysis" class="section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2><i class="fas fa-chart-pie"></i> Financial Analysis</h2>
+                <p class="lead">Explore the financial performance of movies across different dimensions</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Budget vs. Revenue</h3>
+                            <div class="chart-container">
+                                <canvas id="budgetRevenueChart"></canvas>
+                            </div>
+                            <div class="chart-legend mt-3">
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background-color: rgba(54, 162, 235, 0.6)"></span>
+                                    <span>Production Budget</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background-color: rgba(75, 192, 192, 0.6)"></span>
+                                    <span>Domestic Gross</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background-color: rgba(255, 159, 64, 0.6)"></span>
+                                    <span>Foreign Gross</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">ROI Distribution</h3>
+                            <div class="chart-container">
+                                <canvas id="roiDistributionChart"></canvas>
+                            </div>
+                            <div class="insights mt-3">
+                                <div class="insight-item">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <p>Movies with budgets over $200M have an average ROI of 3.2x</p>
+                                </div>
+                                <div class="insight-item">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <p>Mid-budget films ($50-100M) show the most consistent returns</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Top Performing Movies by Profit Margin</h3>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Movie</th>
+                                            <th>Year</th>
+                                            <th>Budget ($M)</th>
+                                            <th>Revenue ($M)</th>
+                                            <th>Profit ($M)</th>
+                                            <th>Profit Margin</th>
+                                            <th>ROI</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="profitTable">
+                                        <!-- Data will be loaded dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 2: Genre Analysis -->
+    <section id="genre-analysis" class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2><i class="fas fa-film"></i> Genre Analysis</h2>
+                <p class="lead">Discover performance patterns across different movie genres</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Genre Distribution</h3>
+                            <div class="chart-container">
+                                <canvas id="genreDistributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Average ROI by Genre</h3>
+                            <div class="chart-container">
+                                <canvas id="genreRoiChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Genre Performance Over Time</h3>
+                            <div class="chart-filters mb-3">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-outline-primary active" data-filter="revenue">Revenue</button>
+                                    <button type="button" class="btn btn-outline-primary" data-filter="roi">ROI</button>
+                                    <button type="button" class="btn btn-outline-primary" data-filter="count">Movie Count</button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="genreTimeChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 3: Trend Analysis -->
+    <section id="trend-analysis" class="section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2><i class="fas fa-chart-line"></i> Trend Analysis</h2>
+                <p class="lead">Analyze how movie performance has evolved over time</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Box Office Trends (1997-2023)</h3>
+                            <div class="chart-container">
+                                <canvas id="boxOfficeTrendChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Key Insights</h3>
+                            <div class="trend-insights">
+                                <div class="trend-insight-item">
+                                    <div class="trend-icon">
+                                        <i class="fas fa-arrow-trend-up"></i>
+                                    </div>
+                                    <div class="trend-content">
+                                        <h4>Foreign Market Growth</h4>
+                                        <p>International box office share increased from 65% to 73% between 2010-2018</p>
+                                    </div>
+                                </div>
+                                <div class="trend-insight-item">
+                                    <div class="trend-icon">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                    <div class="trend-content">
+                                        <h4>Budget Inflation</h4>
+                                        <p>Average blockbuster budget increased by 32% over the decade</p>
+                                    </div>
+                                </div>
+                                <div class="trend-insight-item">
+                                    <div class="trend-icon">
+                                        <i class="fas fa-film"></i>
+                                    </div>
+                                    <div class="trend-content">
+                                        <h4>Franchise Dominance</h4>
+                                        <p>Franchise films accounted for 80% of top-grossing movies in 2018, up from 55% in 2010</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Seasonal Performance</h3>
+                            <div class="chart-container">
+                                <canvas id="seasonalPerformanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Budget Evolution</h3>
+                            <div class="chart-container">
+                                <canvas id="budgetEvolutionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 4: Performance Metrics -->
+    <section id="performance-metrics" class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2><i class="fas fa-gauge-high"></i> Performance Metrics</h2>
+                <p class="lead">Evaluate movie success through multiple performance indicators</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Rating vs. Financial Performance</h3>
+                            <div class="chart-container">
+                                <canvas id="ratingPerformanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Popularity Impact</h3>
+                            <div class="chart-container">
+                                <canvas id="popularityImpactChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Performance Correlation Matrix</h3>
+                            <p class="mb-3">This matrix shows the correlation between different movie performance metrics. Larger bubbles indicate stronger correlations.</p>
+                            <div class="chart-container">
+                                <canvas id="correlationMatrixChart"></canvas>
+                            </div>
+                            <div class="correlation-legend mt-3">
+                                <div class="row">
+                                    <div class="col-md-3 col-6">
+                                        <div class="correlation-item">
+                                            <span class="correlation-color" style="background-color: rgba(0, 0, 255, 0.7)"></span>
+                                            <span>Strong Positive (0.7 to 1.0)</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="correlation-item">
+                                            <span class="correlation-color" style="background-color: rgba(173, 216, 230, 0.7)"></span>
+                                            <span>Weak Positive (0.1 to 0.6)</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="correlation-item">
+                                            <span class="correlation-color" style="background-color: rgba(255, 192, 203, 0.7)"></span>
+                                            <span>Weak Negative (-0.1 to -0.6)</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="correlation-item">
+                                            <span class="correlation-color" style="background-color: rgba(255, 0, 0, 0.7)"></span>
+                                            <span>Strong Negative (-0.7 to -1.0)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 5: Studio Comparison -->
+    <section id="studio-comparison" class="section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2><i class="fas fa-building"></i> Studio Comparison</h2>
+                <p class="lead">Compare performance metrics across major film studios</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Studio Market Share</h3>
+                            <div class="chart-container">
+                                <canvas id="studioMarketShareChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Average ROI by Studio</h3>
+                            <div class="chart-container">
+                                <canvas id="studioRoiChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Studio Performance Comparison</h3>
+                            <div class="studio-filters mb-3">
+                                <div class="form-group">
+                                    <label>Select Studios to Compare:</label>
+                                    <div class="studio-checkbox-group">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="studioDisney" value="Disney" checked>
+                                            <label class="form-check-label" for="studioDisney">Disney</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="studioWarner" value="Warner Bros" checked>
+                                            <label class="form-check-label" for="studioWarner">Warner Bros</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="studioUniversal" value="Universal" checked>
+                                            <label class="form-check-label" for="studioUniversal">Universal</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="studioSony" value="Sony">
+                                            <label class="form-check-label" for="studioSony">Sony</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="studioParamount" value="Paramount">
+                                            <label class="form-check-label" for="studioParamount">Paramount</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="studioComparisonChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 6: Predictive Analytics -->
+    <section id="predictive-analytics" class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2><i class="fas fa-crystal-ball"></i> Predictive Analytics</h2>
+                <p class="lead">Forecast movie performance based on historical data</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Success Probability Model</h3>
+                            <div class="predictive-form mb-4">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="predictBudget" class="form-label">Budget (in millions $)</label>
+                                        <input type="range" class="form-range" id="predictBudget" min="10" max="300" step="10" value="100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>$10M</span>
+                                            <span id="budgetValue">$100M</span>
+                                            <span>$300M</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="predictGenre" class="form-label">Primary Genre</label>
+                                        <select class="form-select" id="predictGenre">
+                                            <option value="action">Action</option>
+                                            <option value="adventure">Adventure</option>
+                                            <option value="animation">Animation</option>
+                                            <option value="comedy">Comedy</option>
+                                            <option value="drama">Drama</option>
+                                            <option value="horror">Horror</option>
+                                            <option value="scifi">Science Fiction</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="predictMonth" class="form-label">Release Month</label>
+                                        <select class="form-select" id="predictMonth">
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="predictFranchise" class="form-label">Franchise</label>
+                                        <select class="form-select" id="predictFranchise">
+                                            <option value="yes">Yes</option>
+                                            <option value="no" selected>No</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="button" class="btn btn-primary" id="predictButton">Predict Performance</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prediction-result">
+                                <h4>Prediction Results</h4>
+                                <div class="prediction-gauges">
+                                    <div class="prediction-gauge">
+                                        <canvas id="roiPredictionGauge"></canvas>
+                                        <p>Estimated ROI</p>
+                                    </div>
+                                    <div class="prediction-gauge">
+                                        <canvas id="successPredictionGauge"></canvas>
+                                        <p>Success Probability</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Feature Importance</h3>
+                            <div class="chart-container">
+                                <canvas id="featureImportanceChart"></canvas>
+                            </div>
+                            <div class="prediction-insights mt-4">
+                                <h4>Model Insights</h4>
+                                <ul class="prediction-insights-list">
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Release timing accounts for 24% of success variance</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Franchise association increases success probability by 35%</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Budget-to-genre alignment is critical for maximizing ROI</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>International appeal factors heavily in modern success metrics</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 7: Movie Search -->
+    <section id="movie-search" class="section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2><i class="fas fa-search"></i> Movie Search</h2>
+                <p class="lead">Find and analyze specific movies in our database</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <div class="search-container mb-4">
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-lg" id="movieSearchInput" placeholder="Search for a movie...">
+                                    <button class="btn btn-primary" type="button" id="movieSearchButton">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                                <div class="search-filters mt-3">
+                                    <div class="row">
+                                        <div class="col-md-3 col-6">
+                                            <select class="form-select" id="yearFilter">
+                                                <option value="">All Years</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2012">2012</option>
+                                                <option value="2009">2009</option>
+                                                <option value="2003">2003</option>
+                                                <option value="1997">1997</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <select class="form-select" id="genreFilter">
+                                                <option value="">All Genres</option>
+                                                <option value="Action">Action</option>
+                                                <option value="Adventure">Adventure</option>
+                                                <option value="Animation">Animation</option>
+                                                <option value="Comedy">Comedy</option>
+                                                <option value="Crime">Crime</option>
+                                                <option value="Drama">Drama</option>
+                                                <option value="Family">Family</option>
+                                                <option value="Fantasy">Fantasy</option>
+                                                <option value="Horror">Horror</option>
+                                                <option value="Science Fiction">Science Fiction</option>
+                                                <option value="Thriller">Thriller</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <select class="form-select" id="ratingFilter">
+                                                <option value="">All Ratings</option>
+                                                <option value="8">8+ ⭐</option>
+                                                <option value="7">7+ ⭐</option>
+                                                <option value="6">6+ ⭐</option>
+                                                <option value="5">5+ ⭐</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <select class="form-select" id="sortFilter">
+                                                <option value="revenue">Sort by Revenue</option>
+                                                <option value="roi">Sort by ROI</option>
+                                                <option value="rating">Sort by Rating</option>
+                                                <option value="year">Sort by Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-results">
+                                <div class="row" id="movieResultsContainer">
+                                    <!-- Search results will be dynamically loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- About Section -->
+    <section id="about" class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2><i class="fas fa-info-circle"></i> About CinemaScope</h2>
+                <p class="lead">Learn more about our platform and methodology</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card dashboard-card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Our Mission</h3>
+                            <p>CinemaScope is dedicated to providing comprehensive analytics and insights for the film industry. Our platform aggregates and analyzes data from thousands of movies to identify trends, patterns, and success factors.</p>
+                            <p>Our mission is to help filmmakers, studios, and industry professionals make data-driven decisions by providing accurate, timely, and actionable insights into movie performance metrics.</p>
+                            <div class="mt-4">
+                                <h4>Key Objectives</h4>
+                                <ul class="feature-list">
+                                    <li>
+                                        <i class="fas fa-check-circle text-success"></i>
+                                        <span>Provide comprehensive financial analysis of movie performance</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle text-success"></i>
+                                        <span>Identify trends and patterns in audience preferences</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle text-success"></i>
+                                        <span>Compare performance across genres, studios, and time periods</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle text-success"></i>
+                                        <span>Develop predictive models for box office performance</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card dashboard-card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Technology Stack</h3>
+                            <div class="tech-stack">
+                                <div class="tech-item d-flex align-items-center mb-3">
+                                    <div class="tech-icon me-3">
+                                        <i class="fab fa-html5 fa-2x text-danger"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">HTML5</h5>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-item d-flex align-items-center mb-3">
+                                    <div class="tech-icon me-3">
+                                        <i class="fab fa-css3-alt fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">CSS3</h5>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-item d-flex align-items-center mb-3">
+                                    <div class="tech-icon me-3">
+                                        <i class="fab fa-js-square fa-2x text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">JavaScript</h5>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-item d-flex align-items-center mb-3">
+                                    <div class="tech-icon me-3">
+                                        <i class="fab fa-bootstrap fa-2x text-purple"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Bootstrap 5</h5>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-purple" role="progressbar" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-item d-flex align-items-center">
+                                    <div class="tech-icon me-3">
+                                        <i class="fas fa-chart-bar fa-2x text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Chart.js</h5>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 75%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <h3><i class="fas fa-film"></i> CinemaScope</h3>
+                        <p>Advanced Movie Analytics Platform</p>
+                    </div>
+                    <p>Comprehensive data analysis of the film industry, providing insights into financial performance, genre trends, and predictive analytics.</p>
+                </div>
+                <div class="col-lg-2">
+                    <h4>Modules</h4>
+                    <ul class="footer-links">
+                        <li><a href="#financial-analysis">Financial Analysis</a></li>
+                        <li><a href="#genre-analysis">Genre Analysis</a></li>
+                        <li><a href="#trend-analysis">Trend Analysis</a></li>
+                        <li><a href="#performance-metrics">Performance Metrics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h4>More Modules</h4>
+                    <ul class="footer-links">
+                        <li><a href="#studio-comparison">Studio Comparison</a></li>
+                        <li><a href="#predictive-analytics">Predictive Analytics</a></li>
+                        <li><a href="#movie-search">Movie Search</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4>About the Data</h4>
+                    <p>This platform analyzes movie data from multiple sources including box office performance, ratings, and production details from 2010-2018.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CinemaScope. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Movie Detail Modal -->
+    <div class="modal fade" id="movieDetailModal" tabindex="-1" aria-labelledby="movieDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="movieDetailModalLabel">Movie Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="movieDetailContent">
+                    <!-- Movie details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script>
+        // Make sure ChartDataLabels is available globally
+        window.chartjs = window.chartjs || {};
+        window.addEventListener('load', function() {
+            if (typeof ChartDataLabels !== 'undefined') {
+                window.chartjs.ChartDataLabels = ChartDataLabels;
+                console.log('ChartDataLabels stored in window.chartjs');
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <script src="assets/js/lib/chart-init.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/charts-fixed.js"></script>
+    <script src="assets/js/data-loader.js"></script>
+</body>
+</html>
