@@ -51,19 +51,9 @@ Or launch the dashboard
 
 
 📂 Project Structure
-movie-analysis-system/
-│
-├── data/               # Raw and processed datasets
-├── notebooks/          # Jupyter notebooks for exploration
-├── src/                # Source code
-│   ├── preprocessing/  # Data cleaning scripts
-│   ├── models/         # ML models
-│   └── visualization/  # Plotting and dashboard code
-├── requirements.txt    # Dependencies
-├── README.md           # Project documentation
-└── main.py             # Entry point
+## 📂 Project Structure
 
-
+
 
 📈 Example Insight
 - Which genres dominate box office revenue?
