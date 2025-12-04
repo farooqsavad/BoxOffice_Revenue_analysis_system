@@ -27,20 +27,20 @@ Prerequisites
   
 Installation
 
-# Clone the repository
+Clone the repository
 git clone https://github.com/your-username/movie-analysis-system.git
 
-# Navigate to project directory
+Navigate to project directory
 cd movie-analysis-system
 
-# Install dependencies
+Install dependencies
 pip install -r requirements.txt
 
 Usage
-# Run the analysis script
+Run the analysis script
 python main.py
 
-# Or launch the dashboard
+Or launch the dashboard
 streamlit run dashboard.py
 
 
