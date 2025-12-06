@@ -24,37 +24,55 @@ Prerequisites
 - Python 3.8+
 - pip (Python package manager)
 - Virtual environment (recommended)
-  
-Installation
 
-Clone the repository
+## ⚙️ Installation
 
--git clone https://github.com/your-username/movie-analysis-system.git
+Clone the repository  
+```bash
+git clone https://github.com/farooqsavad/Medicine_Recommendation_System.git
+```
 
-Navigate to project directory
+Navigate to project directory  
+```bash
+cd Medicine_Recommendation_System
+```
 
--cd movie-analysis-system
+Install dependencies  
+```bash
+pip install -r requirements.txt
+```
 
-Install dependencies
+---
 
--pip install -r requirements.txt
+## 🚀 Usage
 
-Usage
-Run the analysis script
+Run the main script  
+```bash
+python main.py
+```
 
--python main.py
+Or launch the web app (if implemented)  
+```bash
+streamlit run app.py
+```
 
-Or launch the dashboard
+---
 
--streamlit run dashboard.py
+## 📂 Project Structure
 
-
-
-📂 Project Structure
-movie-analysis-system/ │ ├── data/               # Raw and processed datasets ├── notebooks/          # Jupyter notebooks for exploration ├── src/                # Source code │   ├── preprocessing/  # Data cleaning scripts │   ├── models/         # ML models │   └── visualization/  # Plotting and dashboard code ├── requirements.txt    # Dependencies ├── README.md           # Project documentation └── main.py             # Entry point
-
-
-
+Medicine_Recommendation_System/  
+│  
+├── data/               # Dataset files  
+├── notebooks/          # Jupyter notebooks for experiments  
+├── src/                # Source code  
+│   ├── preprocessing/  # Data cleaning scripts  
+│   ├── models/         # ML models  
+│   └── utils/          # Helper functions  
+├── app.py              # Web interface (optional)  
+├── main.py             # CLI entry point  
+├── requirements.txt    # Dependencies  
+└── README.md           # Project documentation  
+```
 
 📈 Example Insight
 - Which genres dominate box office revenue?
