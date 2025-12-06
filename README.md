@@ -59,7 +59,7 @@ streamlit run app.py
 ---
 
 ## 📂 Project Structure
-
+```bash
 Medicine_Recommendation_System/  
 │  
 ├── data/               # Dataset files  
